@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-on-background antialiased;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0b1326;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #3d4947;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6bd8cb;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23bcc9c6' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 32px;
+    appearance: none;
+  }
+}
+
+@layer utilities {
+  .font-grotesk {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+/* EEG waveform animation */
+@keyframes eeg-pulse {
+  0%, 100% { stroke-dashoffset: 0; }
+  50% { stroke-dashoffset: 10; }
+}
+
+/* Heartbeat glow pulse */
+@keyframes neon-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 8px #6bd8cb44; }
+  50% { opacity: 0.7; box-shadow: 0 0 18px #6bd8cb88; }
+}
+
+.neon-pulse {
+  animation: neon-pulse 2s ease-in-out infinite;
+}
